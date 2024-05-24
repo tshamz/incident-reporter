@@ -1,6 +1,7 @@
 import { Manifest } from "deno-slack-sdk/mod.ts";
-import SampleWorkflow from "./workflows/sample_workflow.ts";
-import SampleObjectDatastore from "./datastores/sample_datastore.ts";
+import FormDemoWorkflow from "./workflows/form_demo_workflow.ts";
+import FormDemoDatastore from "./datastores/form_demo_datastore.ts";
+import { IncidentType } from './types/incident.ts';
 
 /**
  * The app manifest contains the app's configuration. This
@@ -8,12 +9,12 @@ import SampleObjectDatastore from "./datastores/sample_datastore.ts";
  * https://api.slack.com/automation/manifest
  */
 export default Manifest({
-  name: "alissa-starter-template",
-  description: "A template for building Slack apps with Deno",
+  name: "Incident Tracker",
   icon: "assets/default_new_app_icon.png",
-  workflows: [SampleWorkflow],
   outgoingDomains: [],
-  datastores: [SampleObjectDatastore],
+  workflows: [FormDemoWorkflow],
+  datastores: [FormDemoDatastore],
+  types: [IncidentType],
   botScopes: [
     "commands",
     "chat:write",
